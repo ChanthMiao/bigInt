@@ -491,7 +491,7 @@ BIGINT_PUBLIC(bigInt *) bigInt_Mul(bigInt *mul, const bigInt *a, const bigInt *b
     for (seg_ptr_y = y->data; seg_ptr_y < border_y; seg_ptr_y++) {
         if (*seg_ptr_y != 0) {
             seg_ptr_dst += (seg_ptr_y - y->data);
-            for (seg_ptr_x = x->data; seg_ptr_x < border_y; seg_ptr_x++, seg_ptr_dst++) {
+            for (seg_ptr_x = x->data; seg_ptr_x < border_x; seg_ptr_x++, seg_ptr_dst++) {
                 (*seg_ptr_dst) += ((*seg_ptr_x) * (*seg_ptr_y) + carry);
                 carry = (*seg_ptr_dst) / SEG_MOD;
                 (*seg_ptr_dst) %= SEG_MOD;

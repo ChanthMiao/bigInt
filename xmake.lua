@@ -1,7 +1,11 @@
 
 -- add modes: debug and release
 add_rules("mode.debug", "mode.release")
-set_languages("c11")
+set_languages("c11", "cxx17")
+-- set warning all as error
+set_warnings("all")
+-- set optimization: none, faster, fastest, smallest
+set_optimize("fastest")
 
 option("dynamic")
     set_default(false)
