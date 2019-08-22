@@ -1,4 +1,4 @@
-﻿#ifndef bigInt_H
+#ifndef bigInt_H
 #define bigInt_H
 #ifdef __cplusplus
 extern "C" {

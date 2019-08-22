@@ -1,6 +1,8 @@
-﻿#include "bigInt.h"
+#include "bigInt.h"
 #include <assert.h>
 #include <ctype.h>
+#include <limits.h>
+#include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
 /*
@@ -12,8 +14,8 @@
 #define SEG_MEM_BYTES (sizeof(seg_t))
 #define SEG_LOGIC_BYTES (SEG_MEM_BYTES / ((size_t)4u) * ((size_t)3u))
 #define SEG_CHAR_BYTES (((size_t)2u) * SEG_LOGIC_BYTES)
-#define SEG_MOD (((seg_t)1) << (SEG_LOGIC_BYTES * 8u))
-#define SEG_N_LIMIT (((size_t)-1u) / SEG_MEM_BYTES / ((size_t)2u))
+#define SEG_MOD (((seg_t)1) << (SEG_LOGIC_BYTES * CHAR_BIT))
+#define SEG_N_LIMIT (SIZE_MAX / SEG_MEM_BYTES / ((size_t)2u))
 #define STATIC_CHAR_BUF_BYTES ((size_t)256)
 #define STATIC_SEG_BUF_BYTES ((size_t)512)
 //预留字符栈空间。

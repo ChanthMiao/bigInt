@@ -13,14 +13,20 @@ option("dynamic")
     set_category("option")
     set_description("Enable the dynamic export.")
 option_end()
+-- add support for the toolchain of visual studio
+if is_plat("windows") then
+    add_cflags("/utf-8", "/std:c++latest")
+    add_defines("_CRT_SECURE_NO_WARNINGS")
+end
 
 -- add target
 target("bigInt")
-
     -- set kind
     if has_config("dynamic") then
         set_kind("shared")
-        add_cflags("-fPIC")
+        if is_plat("linux") then
+            add_cflags("-fPIC")
+        end
     else
         set_kind("static")
     end
